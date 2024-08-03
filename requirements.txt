@@ -9,7 +9,6 @@ attrs==23.2.0
 Babel==2.15.0
 beautifulsoup4==4.12.3
 bleach==6.1.0
-certifi @ file:///private/tmp/certifi-20240307-4874-p3lgkm/certifi-2024.2.2
 cffi==1.16.0
 charset-normalizer==3.3.2
 cmdstanpy==1.2.2
@@ -109,5 +108,4 @@ wcwidth==0.2.13
 webcolors==1.13
 webencodings==0.5.1
 websocket-client==1.8.0
-wheel @ file:///opt/homebrew/Cellar/python%403.12/3.12.2_1/libexec/wheel-0.43.0-py3-none-any.whl#sha256=b66b1ea367126425ba6ef889a0c0b800a291c380b7c313f2198876288fb9be06
 widgetsnbextension==4.0.10
