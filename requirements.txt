@@ -6,4 +6,5 @@ jupyterlab>=4.2.0
 matplotlib>=3.9.0
 numpy>=1.26.4
 pandas>=2.2.2
+plotly>=6.0.1
 prophet>=1.1.5
