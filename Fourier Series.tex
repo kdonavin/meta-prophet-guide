@@ -34,16 +34,23 @@ Where $t$ is time. Note that the frequency for each added sine/cosine term is in
 First, let us establish some trigonometric integration identities regarding these wave functions.
 
 \begin{align}
-    \int_0^{2\pi} \sin(mt)\mathrm{d}t &= 0 &\text{\hspace{0.5cm} for \textit{any} integer $m$}\\
-    \int_0^{2\pi} \cos(mt)\mathrm{d}t &= 0 &\text{\hspace{0.5cm} for non-zero integer $m$}\\
-    \int_0^{2\pi} \sin(mt) \cdot \cos(nt)\mathrm{d}t &= 0 &\text{\hspace{0.5cm} for \textit{any} integers $m, n$}\\
-    \int_0^{2\pi} \sin(mt) \cdot \sin(nt) &= 0 &\text{\hspace{0.5cm} for integers $m,n$ when $m \neq n$ or $m \neq -n$}\\
-    \int_0^{2\pi} \sin^2(mt)\mathrm{d}t &= \pi &\text{\hspace{0.5cm} for integer $m = n \neq 0$, note this is the edge case of $m=n$ above} \\
-    \int_0^{2\pi} \cos(mt) \cdot \cos(nt) &= 0 &\text{\hspace{0.5cm} for integers $m,n$ when $m \neq n$ or $m \neq -n$}\\
-    \int_0^{2\pi} \cos^2(mt)\mathrm{d}t &= \pi &\text{\hspace{0.5cm} for integer $m = n \neq 0$}
+    \int_0^{2\pi} \sin(mt)\mathrm{d}t &= 0 \\
+    \intertext{\hspace{0.5cm} for \textit{any} integer $m$}
+    \int_0^{2\pi} \cos(mt)\mathrm{d}t &= 0 \\
+    \intertext{\hspace{0.5cm} for non-zero integer $m$}
+    \int_0^{2\pi} \sin(mt) \cdot \cos(nt)\mathrm{d}t &= 0 \\
+    \intertext{\hspace{0.5cm} for \textit{any} integers $m, n$}
+    \int_0^{2\pi} \sin(mt) \cdot \sin(nt) &= 0 \\
+    \intertext{\hspace{0.5cm} for integers $m,n$ when $m \neq n$ or $m \neq -n$}
+    \int_0^{2\pi} \sin^2(mt)\mathrm{d}t &= \pi \\
+    \intertext{\hspace{0.5cm} for integer $m = n \neq 0$, note this is the edge case of $m=n$ above}
+    \int_0^{2\pi} \cos(mt) \cdot \cos(nt) &= 0 \\
+    \intertext{\hspace{0.5cm} for integers $m,n$ when $m \neq n$ or $m \neq -n$}
+    \int_0^{2\pi} \cos^2(mt)\mathrm{d}t &= \pi \\
+    \intertext{\hspace{0.5cm} for integer $m = n \neq 0$} \notag
 \end{align}
 
-These are well known integral values, but I could used the integration review, so let us prove it. First, let us acknowledge the derivitive value of sine \& cosine:
+These are well known integral values, but I could use the integration review, so let us prove it. First, I will note the derivitive value of sine \& cosine:
 
 \begin{align*}
     \frac{\mathrm{d}}{\mathrm{d}t}[\cos(mt)] & = m\cdot\left(-\sin(mt)\right) \\
