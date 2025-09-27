@@ -61,36 +61,36 @@ These are well known integral values, but I could use the integration review, so
 
 The following is the integration of sine function for an arbitrary number $m$ of full periods.
 
-\begin{align}
+\begin{align*}
     \int_0^{2\pi} \sin(mt)\mathrm{d}t & = -\frac1m\int_0^{2\pi}-m\sin(mt)\mathrm{d}t \\
     & = -\frac1m\left(\cos(mt)\right)\bigg\rvert_0^{2\pi} \\
     & = -\frac1m\left(\cancel{\cos(m\cdot2\pi)} - \cancel{\cos(m\cdot 0)}\right) \\
     & = -\frac1m\left(1 - 1\right) \\
     & = 0
-\end{align}
+\end{align*}
 
 And, the integration of the cosine function for an arbitrary number $m$ of full periods:
 
-\begin{align}
+\begin{align*}
     \int_0^{2\pi} \cos(mt)\mathrm{d}t & = \frac1m\int_0^{2\pi}m\cos(mt)\mathrm{d}t \\
     & = \frac1m\left(\sin(mt)\right)\bigg\rvert_0^{2\pi} \\
     & = \frac1m\left(\cancel{\sin(m\cdot2\pi)} - \cancel{\sin(m\cdot 0)}\right) \\
     & = -\frac1m\left(0 - 0\right) \\
     & = 0
-\end{align}
+\end{align*}
 
 And, the integration of sine times cosine:
 
-\begin{align}
+\begin{align*}
     \int_0^{2\pi}\sin(mt)\cos(nt)\mathrm{d}t & = \int_0^{2\pi}\frac12[\sin((m+n)t) +\sin((m-n)t)]\mathrm{d}t &\text{\hspace{0.5cm} by trigonometric identity} \\
     & = \frac12 \int_0^{2\pi}\sin((m+n)t)\mathrm{d}t + \frac12 \int_0^{2\pi}\sin((m-n)t)\mathrm{d}t\\
     & = \frac12 \cancel{\int_0^{2\pi}\sin(k\cdot t)\mathrm{d}t} + \frac12 \cancel{\int_0^{2\pi}\sin(l\cdot t)\mathrm{d}t} &\text{\hspace{0.5cm}  where $k=m+n$, and $l=m-n$ are integers}\\
     & = 0 &\text{By the integral identity of $\sin(mt)$ established above}
-\end{align}
+\end{align*}
 
 And, the integration of sine times sine of different number of periods:
 
-\begin{align}
+\begin{align*}
     \int_0^{2\pi} \sin(mt) \cdot \sin(nt) \mathrm{d}t &= \int_0^{2\pi}\frac12[\cos((m-n)t) - \cos((m+n)t) \mathrm{d}t \text{\hspace{0.5cm}by trigonometric identity, for $m \neq n, -n$.}&\\
     & =\frac12\cancel{\int_0^{2\pi}\cos((m-n)t)\mathrm{d}t} - \frac12\cancel{\int_0^{2\pi}\cos((m+n)t)\mathrm{d}t}\\
     & \text{Note that integer $k = m-n$ and $l = m+n$. Thus, for all integers $m \neq n, -n$:} &\\
@@ -101,11 +101,11 @@ And, the integration of sine times sine of different number of periods:
     & = \frac12 \cdot t \bigg\rvert_0^{2\pi} \\
     & = \frac12 (2\pi - 0) \\
     & = \pi
-\end{align}
+\end{align*}
 
 And, the integration of cosine times cosine of different number of periods (nearly identical math to above):
 
-\begin{align}
+\begin{align*}
     \int_0^{2\pi} \cos(mt) \cdot \cos(nt) \mathrm{d}t &=\int_0^{2\pi}\frac12[\cos((m-n)t) - \cos((m+n)t) \mathrm{d}t \text{\hspace{0.5cm}by trigonometric identity, for integers $m \neq n, -n$.}&\\
     & =\frac12\cancel{\int_0^{2\pi}\cos((m-n)t)\mathrm{d}t} - \frac12\cancel{\int_0^{2\pi}\cos((m+n)t)\mathrm{d}t}\\
     & \text{Note that integer $k = m-n$ and $l = m+n$. Thus, for all integers $m \neq n, -n$:} &\\
@@ -116,7 +116,7 @@ And, the integration of cosine times cosine of different number of periods (near
     & = \frac12 \cdot t \bigg\rvert_0^{2\pi} \\
     & = \frac12 (2\pi - 0) \\
     & = \pi
-\end{align}
+\end{align*}
 
 \section*{Derivation of Fourier Coefficients} % Added a section title for context
 
