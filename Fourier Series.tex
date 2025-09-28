@@ -18,7 +18,7 @@ This document is a primer on the Fourier Series and how it is used to transform 
 
 \section*{The Fourier Series} % Added a section title for context
 
-A Fourier series is a way to represent a \textit{periodic} (e.g., seasonal) function as a sum of \textit{weighted} sine and cosine waves. They were first used by Joseph Fourier to find solutions to periodic functions that are not so easily differentiated as a series of sine and cosine functions. A fourier series looks like this:
+A Fourier series is a way to represent a \textit{periodic} (e.g., seasonal) function as a sum of \textit{weighted} sine and cosine waves. They were first used by Joseph Fourier to find solutions to periodic functions that are not easily differentiated, but instead were closely approximated by a series of sine and cosine functions. A fourier series looks like this:
 
 \begin{align}
 f(t) = a_0 & + a_1\cos(t) + a_2\cos(2t) + a_3\cos(3t) + ... \\
@@ -29,7 +29,7 @@ Where $t$ is time. Note that the frequency for each added sine/cosine term is in
 
 \section*{Theory}
 
-\subsection*{Derivation of Trigonometric Identies}
+\subsection*{Trigonometric Identies for Fourier Series Approximation}
 
 First, let us establish some trigonometric integration identities regarding these wave functions.
 
@@ -59,7 +59,9 @@ These are well known integral values, but I could use the integration review, so
     \frac{\mathrm{d}}{\mathrm{d}t}[\sin(mt)] & = m\cdot\left(\cos(mt)\right)
 \end{align*}
 
-The following is the integration of sine function for an arbitrary number $m$ of full periods.
+\subsubsection*{Integration of Sine Function for an Arbitrary Number of Periods ($m$)}
+
+The following is the integration of the sine function for an arbitrary number $m$ full (i.e., integer) periods.
 
 \begin{align*}
     \int_0^{2\pi} \sin(mt)\mathrm{d}t & = -\frac1m\int_0^{2\pi}-m\sin(mt)\mathrm{d}t \\
@@ -68,6 +70,8 @@ The following is the integration of sine function for an arbitrary number $m$ of
     & = -\frac1m\left(1 - 1\right) \\
     & = 0
 \end{align*}
+
+\subsubsection*{Integration of Cosine Function for an Arbitrary Number of Periods ($m$)}
 
 And, the integration of the cosine function for an arbitrary number $m$ of full periods:
 
@@ -79,23 +83,34 @@ And, the integration of the cosine function for an arbitrary number $m$ of full 
     & = 0
 \end{align*}
 
+\subsubsection*{Integration of the Products of Sine and Cosine Functions for Arbitrary Numbers of Periods ($m$ \& $n$)}
+
+
 And, the integration of sine times cosine:
 
 \begin{align*}
-    \int_0^{2\pi}\sin(mt)\cos(nt)\mathrm{d}t & = \int_0^{2\pi}\frac12[\sin((m+n)t) +\sin((m-n)t)]\mathrm{d}t &\text{\hspace{0.5cm} by trigonometric identity} \\
+    \int_0^{2\pi}\sin(mt)\cos(nt)\mathrm{d}t & = \int_0^{2\pi}\frac12[\sin((m+n)t) +\sin((m-n)t)]\mathrm{d}t \\
+    \intertext{\hspace{0.5cm} by trigonometric identity}
     & = \frac12 \int_0^{2\pi}\sin((m+n)t)\mathrm{d}t + \frac12 \int_0^{2\pi}\sin((m-n)t)\mathrm{d}t\\
-    & = \frac12 \cancel{\int_0^{2\pi}\sin(k\cdot t)\mathrm{d}t} + \frac12 \cancel{\int_0^{2\pi}\sin(l\cdot t)\mathrm{d}t} &\text{\hspace{0.5cm}  where $k=m+n$, and $l=m-n$ are integers}\\
-    & = 0 &\text{By the integral identity of $\sin(mt)$ established above}
+    \intertext{\hspace{0.5cm} Now, for integers $k=m+n$, and $l=m-n$:}
+    & = \frac12 \cancel{\int_0^{2\pi}\sin(k\cdot t)\mathrm{d}t} + \frac12 \cancel{\int_0^{2\pi}\sin(l\cdot t)\mathrm{d}t} \\
+    & = 0 \\
+    \intertext{By the integral identity of $\sin(mt)$ established above}
 \end{align*}
 
-And, the integration of sine times sine of different number of periods:
+\subsubsection*{Integration of Sine Times Sine `Functions for Arbitrary Numbers of Periods ($m$ \& $n$)}
+
+
+And, the integration of sine times sine function of a different number of periods:
 
 \begin{align*}
-    \int_0^{2\pi} \sin(mt) \cdot \sin(nt) \mathrm{d}t &= \int_0^{2\pi}\frac12[\cos((m-n)t) - \cos((m+n)t) \mathrm{d}t \text{\hspace{0.5cm}by trigonometric identity, for $m \neq n, -n$.}&\\
-    & =\frac12\cancel{\int_0^{2\pi}\cos((m-n)t)\mathrm{d}t} - \frac12\cancel{\int_0^{2\pi}\cos((m+n)t)\mathrm{d}t}\\
-    & \text{Note that integer $k = m-n$ and $l = m+n$. Thus, for all integers $m \neq n, -n$:} &\\
+    \int_0^{2\pi} \sin(mt) \cdot \sin(nt) \mathrm{d}t &= \int_0^{2\pi}\frac12[\cos((m-n)t) - \cos((m+n)t)]\mathrm{d}t \\
+    \intertext{\hspace{0.5cm}by trigonometric identity, for $m \neq n, -n$.}
+    & =\frac12\int_0^{2\pi}\cos((m-n)t)\mathrm{d}t - \frac12\int_0^{2\pi}\cos((m+n)t)\mathrm{d}t\\
+    \intertext{Now, for integer $k=m-n$ and $l=m+n$ we have previously established that:}
+    & =\cancel{\frac12\int_0^{2\pi}\cos(k \cdot t)\mathrm{d}t} - \cancel{\frac12\int_0^{2\pi}\cos(l \cdot t)\mathrm{d}t}\\
     & = 0 \\
-    & \text{However, if $m = n$, then we have:}\\
+    \intertext{This holds for all $m \neq n, -n$. However, if $m = n$, then we have:}
     \int_0^{2\pi} \sin^2(mt)\mathrm{d}t & = \frac12\int_0^{2\pi}\cos((\cancel{m-m})t)\mathrm{d}t - \frac12\cancel{\int_0^{2\pi}\cos((m+m)t)\mathrm{d}t}\\
     & = \frac12\int_0^{2\pi}1\mathrm{d}t\\
     & = \frac12 \cdot t \bigg\rvert_0^{2\pi} \\
@@ -103,14 +118,19 @@ And, the integration of sine times sine of different number of periods:
     & = \pi
 \end{align*}
 
-And, the integration of cosine times cosine of different number of periods (nearly identical math to above):
+\subsubsection*{Integration of Cosine Times Cosine Functions for Arbitrary Numbers of Periods ($m$ \& $n$)}
+
+
+And, the integration of cosine times cosine of different number of periods (nearly identical math to the above):
 
 \begin{align*}
-    \int_0^{2\pi} \cos(mt) \cdot \cos(nt) \mathrm{d}t &=\int_0^{2\pi}\frac12[\cos((m-n)t) - \cos((m+n)t) \mathrm{d}t \text{\hspace{0.5cm}by trigonometric identity, for integers $m \neq n, -n$.}&\\
-    & =\frac12\cancel{\int_0^{2\pi}\cos((m-n)t)\mathrm{d}t} - \frac12\cancel{\int_0^{2\pi}\cos((m+n)t)\mathrm{d}t}\\
-    & \text{Note that integer $k = m-n$ and $l = m+n$. Thus, for all integers $m \neq n, -n$:} &\\
+    \int_0^{2\pi} \cos(mt) \cdot \cos(nt) \mathrm{d}t &=\int_0^{2\pi}\frac12[\cos((m-n)t) - \cos((m+n)t)]\mathrm{d}t \\
+    \intertext{\hspace{0.5cm}by trigonometric identity, for integers $m \neq n, -n$.}
+    & =\frac12\int_0^{2\pi}\cos((m-n)t)\mathrm{d}t - \frac12\int_0^{2\pi}\cos((m+n)t)\mathrm{d}t\\
+    \intertext{Note that integer $k=m-n$ and $l=m+n$ we have previously established that:}
+    & =\cancel{\frac12\int_0^{2\pi}\cos(k \cdot t)\mathrm{d}t} - \cancel{\frac12\int_0^{2\pi}\cos(l \cdot t)\mathrm{d}t}\\
     & = 0 \\
-    & \text{However, if $m = n$, then we have:}\\
+    \intertext{This holds for all integers $m \neq n, -n$. However, if $m = n$, then we have:}
     \int_0^{2\pi} \cos^2(mt)\mathrm{d}t & = \frac12\int_0^{2\pi}\cos((\cancel{m-m})t)\mathrm{d}t - \frac12\cancel{\int_0^{2\pi}\cos((m+m)t)\mathrm{d}t}\\
     & = \frac12\int_0^{2\pi}1\mathrm{d}t\\
     & = \frac12 \cdot t \bigg\rvert_0^{2\pi} \\
@@ -118,7 +138,7 @@ And, the integration of cosine times cosine of different number of periods (near
     & = \pi
 \end{align*}
 
-\section*{Derivation of Fourier Coefficients} % Added a section title for context
+\section*{Derivation of Fourier Coefficients}
 
 Let us begin by solving for the first term in the Fourier Series for a periodic step function.
 
@@ -192,17 +212,20 @@ Let us begin by solving for the first term in the Fourier Series for a periodic 
 
 \subsection*{The First Term: $a_0$}
 
+
 First let us differentiate the infinite Fourier Series from $0$ to $2\pi$:
 
-\begin{align}
-    \int_0^{2\pi} f(t) \mathrm{d}t & = \int_0^{2\pi} (a_0 + a_1\cos(t) + a_2\cos(2t) + \dots + a_n\cos(nt) + b_1\sin(t) + b_2\sin(2t) + \dots + b_n\sin(nt))\mathrm{d}t\\
-    &\text{Using the integrated sine \& cosine identities above:}\\
-    & = \int_0^{2\pi} a_0 \mathrm{d}t + \cancel{\int_0^{2\pi} a_1\cos(t) \mathrm{d}t} + \cancel{\int_0^{2\pi} a_2\cos(2t) \mathrm{d}t} + \dots + \cancel{\int_0^{2\pi} a_n\cos(nt) \mathrm{d}t} + \cancel{\int_0^{2\pi} b_1\sin(t) \mathrm{d}t} + \cancel{\int_0^{2\pi} b_2\sin(2t) \mathrm{d}t} + \dots + \cancel{\int_0^{2\pi} b_n\sin(nt) \mathrm{d}t} \\
+\begin{align*}
+    \int_0^{2\pi} f(t) \mathrm{d}t & = \int_0^{2\pi} \big( a_0 + a_1\cos(t) + a_2\cos(2t) + \dots + a_n\cos(nt) \\
+    & + b_1\sin(t) + b_2\sin(2t) + \dots + b_n\sin(nt)\big)\mathrm{d}t\\
+    \intertext{Using the integrated sine \& cosine identities above:}
+    & = \int_0^{2\pi} a_0 \mathrm{d}t + \cancel{\int_0^{2\pi} a_1\cos(t) \mathrm{d}t} + \cancel{\int_0^{2\pi} a_2\cos(2t) \mathrm{d}t} + \dots + \cancel{\int_0^{2\pi} a_n\cos(nt) \mathrm{d}t} \\
+    & + \cancel{\int_0^{2\pi} b_1\sin(t) \mathrm{d}t} + \cancel{\int_0^{2\pi} b_2\sin(2t) \mathrm{d}t} + \dots + \cancel{\int_0^{2\pi} b_n\sin(nt) \mathrm{d}t} \\
     & = a_0 \cdot t \bigg\vert_0^{2\pi} \\
     \int_0^{2\pi} f(t) & = a_0 \cdot 2\pi \\
-    & \text{Solving for $a_0$:}\\
+    \intertext{Solving for $a_0$:}
     a_0 & = \frac{1}{2\pi}\int_0^{2\pi} f(t) \mathrm{d}t
-\end{align} 
+\end{align*} 
 
 In other words, $a_0$ is equal to the \textit{mean} of $f(t)$ for the integration period. This makes sense because sine and cosine functions oscillate between $-1$ and $1$, and $a_0$ represents the center starting point for a Fourier Series representation of a periodic function.
 
@@ -210,22 +233,38 @@ In other words, $a_0$ is equal to the \textit{mean} of $f(t)$ for the integratio
 
 Now we will solve for the cosine coefficients ($a_n \text{ for } n \in 1, 2, \dots$). First, we multiply our Fourier Series by $\cos(nt)$:
 
-\begin{align}
-    f(t)\cos(nt) & = a_0 \cdot \cos(nt) \\& + a_1\cos(t) \cdot \cos(nt) \\& + a_2\cos(2t) \cdot \cos(nt) \\& + \dots \\& + a_n\cos(nt) \cdot \cos(nt) \\& + b_1\sin(t) \cdot \cos(nt) \\& + b_2\sin(2t) \cdot \cos(nt) \\& + \dots \\& + b_n\sin(nt) \cdot \cos(nt)\\
-    &\text{Now we can integrate both sides from $0$ to $2\pi$ and eliminate most terms using the trigonometric identies we built above}\\
-    \int_0^{2\pi}f(t)\cos(nt)\mathrm{d}t & = \cancel{a_0 \int_0^{2\pi} \cos(nt) \mathrm{d}t} \\& + \cancel{a_1\int_0^{2\pi}(\cos(t) \cdot \cos(nt)) \mathrm{d}t} \\& + \cancel{a_2\int_0^{2\pi}(\cos(2t) \cdot \cos(nt)) \mathrm{d}t} \\& + \dots \\& + a_n\int_0^{2\pi} \cos^2(nt) \mathrm{d}t \\& + \dots \\& + \cancel{b_1\int_0^{2\pi}(\sin(t) \cdot \cos(nt)) \mathrm{d}t} \\& + \cancel{b_2\int_0^{2\pi}(\sin(2t) \cdot \cos(nt)) \mathrm{d}t} \\& + \dots \\& + \cancel{b_n\int_0^{2\pi}(\sin(nt) \cdot \cos(nt)) \mathrm{d}t}\\
-    & = a_n \cdot \pi \\
+\begin{align*}
+    f(t) \cdot \cos(nt) & = a_0 \cdot \cos(nt) + a_1\cos(t) \cdot \cos(nt) + a_2\cos(2t) \cdot \cos(nt) + \dots\\
+    & + a_n\cos(nt) \cdot \cos(nt) + \dots \\
+    & + b_1\sin(t) \cdot \cos(nt) + b_2\sin(2t) \cdot \cos(nt) + \dots \\
+    & + b_n\sin(nt) \cdot \cos(nt) + \dots \\
+    \intertext{Now we can integrate both sides from $0$ to $2\pi$ and eliminate most terms using the trigonometric identies we built above}\\
+    \int_0^{2\pi}f(t) \cdot \cos(nt)\mathrm{d}t &= \cancel{a_0 \int_0^{2\pi} \cos(nt) \mathrm{d}t} + \cancel{a_1\int_0^{2\pi}(\cos(t) \cdot \cos(nt)) \mathrm{d}t} + \cancel{a_2\int_0^{2\pi}(\cos(2t) \cdot \cos(nt)) \mathrm{d}t} + \dots \\
+    & + a_n\int_0^{2\pi} \cos^2(nt) \mathrm{d}t + \dots \\
+    & + \cancel{b_1\int_0^{2\pi}(\sin(t) \cdot \cos(nt)) \mathrm{d}t} + \cancel{b_2\int_0^{2\pi}(\sin(2t) \cdot \cos(nt)) \mathrm{d}t} + \dots \\ 
+    & + \cancel{b_n\int_0^{2\pi}(\sin(nt) \cdot \cos(nt)) \mathrm{d}t} + \dots \\
+    \intertext{By the squared cosine integral identity established above, we have:}
+    \int_0^{2\pi}f(t) \cdot \cos(nt)\mathrm{d}t & = a_n \cdot \pi \\
+    \intertext{Therfore, solving for $a_n$:}
     a_n & = \frac1\pi \int_0^{2\pi} f(t) \cdot \cos(nt) \mathrm{d}t
-\end{align}
+\end{align*}
 
 Similarly, we can solve for the sine coefficients of the infinite Fourier series ($b_n \text{ for } n \in 1, 2, \dots$) by multiplying each side of the series by $\sin(nt)$:
 
-\begin{align}
-    f(t)\sin(nt) & = a_0 \cdot \sin(nt) \\& + a_1\cos(t) \cdot \sin(nt) \\& + a_2\cos(2t) \cdot \sin(nt) \\& + \dots \\& + a_n\cos(nt) \cdot \sin(nt) \\& + \dots \\& + b_1\sin(t) \cdot \sin(nt) \\& + b_2\sin(2t) \cdot \sin(nt) \\& + \dots \\& + b_n\sin(nt) \cdot \sin(nt) \\& + \dots \\
-    &\text{Now we can integrate both sides from $0$ to $2\pi$ and eliminate most terms using the trigonometric identies we built above}\\
-    \int_0^{2\pi}f(t)\sin(nt)\mathrm{d}t & = \cancel{a_0 \int_0^{2\pi} \sin(nt) \mathrm{d}t} \\& + \cancel{a_1\int_0^{2\pi}(\cos(t) \cdot \sin(nt)) \mathrm{d}t} \\& + \cancel{a_2\int_0^{2\pi}(\cos(2t) \cdot \sin(nt)) \mathrm{d}t} \\& + \dots \\& + \cancel{a_n\int_0^{2\pi} \cos(nt) \cdot \sin(nt) \mathrm{d}t} \\& + \dots \\& + \cancel{b_1\int_0^{2\pi}(\sin(t) \cdot \sin(nt)) \mathrm{d}t} \\& + \cancel{b_2\int_0^{2\pi}(\sin(2t) \cdot \sin(nt)) \mathrm{d}t} \\& + \dots \\& + b_n\int_0^{2\pi}\sin^2(nt) \mathrm{d}t \\& + \dots
-    & = b_n \cdot \pi \\
+\begin{align*}
+    f(t) \cdot \sin(nt) & = a_0 \cdot \sin(nt) + a_1\cos(t) \cdot \sin(nt) + a_2\cos(2t) \cdot \sin(nt) + \dots\\
+    & + a_n\cos(nt) \cdot \sin(nt) + \dots \\
+    & + b_1\sin(t) \cdot \sin(nt) + b_2\sin(2t) \cdot \sin(nt) + \dots \\
+    & + b_n\sin(nt) \cdot \sin(nt) + \dots \\
+    \intertext{Now, as before, we can integrate both sides from $0$ to $2\pi$ and eliminate most terms using the trigonometric identies we built above:}\\
+    \int_0^{2\pi}f(t)\sin(nt)\mathrm{d}t & = \cancel{a_0 \int_0^{2\pi} \sin(nt) \mathrm{d}t} + \cancel{a_1\int_0^{2\pi}(\cos(t) \cdot \sin(nt)) \mathrm{d}t} + \cancel{a_2\int_0^{2\pi}(\cos(2t) \cdot \sin(nt)) \mathrm{d}t} + \dots \\
+    & + \cancel{a_n\int_0^{2\pi} \cos(nt) \cdot \sin(nt) \mathrm{d}t} + \dots \\
+    & + \cancel{b_1\int_0^{2\pi}(\sin(t) \cdot \sin(nt)) \mathrm{d}t} + \cancel{b_2\int_0^{2\pi}(\sin(2t) \cdot \sin(nt)) \mathrm{d}t} + \dots \\
+    & + b_n\int_0^{2\pi}\sin^2(nt) \mathrm{d}t + \dots
+    \intertext{By the squared sine integral identity established above, we have:}
+    \int_0^{2\pi}f(t)\sin(nt)\mathrm{d}t & = b_n \cdot \pi \\
+    \intertext{Therfore, solving for $b_n$:}
     b_n & = \frac1\pi \int_0^{2\pi}f(t) \cdot \sin(nt) \mathrm{d}t
-\end{align}
+\end{align*}
 
 \end{document}
