@@ -1,0 +1,18 @@
+\contentsline {section}{\numberline {1}The Fourier Series}{2}{section.1}%
+\contentsline {section}{\numberline {2}Theory of the Fourier Series}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Trigonometric Identies for Fourier Series Approximation}{2}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Integration of Sine Function for an Arbitrary Number of Periods ($m$)}{3}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Integration of Cosine Function for an Arbitrary Number of Periods ($m$)}{3}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Integration of the Products of Sine and Cosine Functions for Arbitrary Numbers of Periods ($m$ \& $n$)}{4}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}Integration of Sine Times Sine `Functions for Arbitrary Numbers of Periods ($m$ \& $n$)}{4}{subsubsection.2.1.4}%
+\contentsline {subsubsection}{\numberline {2.1.5}Integration of Cosine Times Cosine Functions for Arbitrary Numbers of Periods ($m$ \& $n$)}{5}{subsubsection.2.1.5}%
+\contentsline {section}{\numberline {3}Derivation of Fourier Coefficients}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The First Term: $a_0$}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}The $n$th Coefficients: $a_n$ \& $b_n$}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Solving for Fourier Coefficients: Approximation of a Step Function}{8}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Computing $a_0$}{9}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Computing $a_n$}{9}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Computing $b_n$}{9}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Summary of Fourier Series}{10}{subsubsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.4}First Few Terms of the Fourier Series Expansion}{10}{subsection.3.4}%
+\contentsline {section}{\numberline {4}References}{11}{section.4}%
