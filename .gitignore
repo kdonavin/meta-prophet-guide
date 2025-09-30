@@ -3,3 +3,4 @@
 MODELS/
 *.log 
 *.aux
+*.out
