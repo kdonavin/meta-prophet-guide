@@ -31,19 +31,19 @@
 ]
 
 % Axes
-\draw[->,thick] (-6.5,0) -- (13.5,0) node[right] {$t$};
-\draw[->,thick] (0,-1.5) -- (0,3.5) node[above] {$f(t)$};
+\draw[<->,thick] (-6.6,0) -- (6.6,0) node[right] {$t$};
+\draw[<->,thick] (0,-1.5) -- (0,3.5) node[above] {$f(t)$};
 
-% x-ticks at -2pi, -pi, 0, pi, 2pi, 3pi, 4pi
-\foreach \i/\label in {-6.28/-\pi, 0/0, 3.14/\pi, 6.28/2\pi, 9.42/3\pi, 12.57/4\pi}
+% x-ticks at -2pi, -pi, 0, pi, 2pi
+\foreach \i/\label in {-6.28/-2\pi, -3.14/-\pi, 0/0, 3.14/\pi, 6.28/2\pi}
     \draw[thick] (\i,0.1) -- (\i,-0.1) node[below] {$\label$};
 
 % y-ticks at 1, 2, 3
 \foreach \y in {1,2,3}
     \draw[thick] (0.1,\y) -- (-0.1,\y) node[left] {$\y$};
 
-% Step function: f(t) for -2pi to 4pi
-\foreach \k in {-1,0,1}
+% Step function: f(t) for -2pi to 2pi
+\foreach \k in {-1,0}
 {
     \pgfmathsetmacro{\offset}{\k * 2 * 3.1416}
     % f(t) = 3 for [offset, offset+pi)
@@ -57,18 +57,18 @@
     % Vertical dashed line
     \draw[dashed,thick] (\offset+3.1416,3) -- (\offset+3.1416,0);
 }
-% Final partial segment if needed to reach exactly 4pi
-\draw[very thick,black] (12.566,3) -- (12.57,3); % 4pi = 12.566, 12.57 for rounding
-\node[solid_point] at (12.566,3) {};
-\node[open_point] at (12.57,3) {};
+% Final partial segment if needed to reach exactly 2pi
+\draw[very thick,black] (6.2832,3) -- (6.28,3); % 2pi = 6.2832, 6.28 for rounding
+\node[solid_point] at (6.2832,3) {};
+\node[open_point] at (6.28,3) {};
 
 % Fourier approximations 
 % f_1(t) - lightest, dotted
-\draw[domain=-6.28:12.57,smooth,samples=300,gray,thick,dotted] plot(\x,{1.5 + (6/3.1416)*sin(deg(\x))});
+\draw[domain=-6.28:6.28,smooth,samples=300,gray,thick,dotted] plot(\x,{1.5 + (6/3.1416)*sin(deg(\x))});
 % f_3(t) - blue, dashed
-\draw[domain=-6.28:12.57,smooth,samples=300,blue,thick,dashed] plot(\x,{1.5 + (6/3.1416)*sin(deg(\x)) + (2/3.1416)*sin(deg(3*\x))});
+\draw[domain=-6.28:6.28,smooth,samples=300,blue,thick,dashed] plot(\x,{1.5 + (6/3.1416)*sin(deg(\x)) + (2/3.1416)*sin(deg(3*\x))});
 % f_5(t) - heavy, red, solid
-\draw[domain=-6.28:12.57,smooth,samples=300,red,very thick] plot(\x,{1.5 + (6/3.1416)*sin(deg(\x)) + (2/3.1416)*sin(deg(3*\x)) + (6/(5*3.1416))*sin(deg(5*\x))});
+\draw[domain=-6.28:6.28,smooth,samples=300,red,very thick] plot(\x,{1.5 + (6/3.1416)*sin(deg(\x)) + (2/3.1416)*sin(deg(3*\x)) + (6/(5*3.1416))*sin(deg(5*\x))});
 
 \end{tikzpicture}
 \end{center}
@@ -290,9 +290,9 @@ This function has a period of $2\pi$ and alternates between $3$ and $0$ every $\
 
     % Draw the axes
     % Adjusted x-axis range to be from -2.2*pi to 4.2*pi to show periods from -2pi to 4pi
-    \draw[->] (-2.2*pi,0) -- (4.2*pi,0) node[right] {$t$}; % Changed x to t
+    \draw[<->] (-2.2*pi,0) -- (4.2*pi,0) node[right] {$t$}; % Changed x to t
     % Adjusted y-axis range to accommodate values up to 3
-    \draw[->] (0,-1.5) -- (0,3.5) node[above] {$f(t)$}; % Changed f(x) to f(t)
+    \draw[<->] (0,-1.5) -- (0,3.5) node[above] {$f(t)$}; % Changed f(x) to f(t)
 
     % Draw the grid lines for integer multiples of pi
     % Iterates from -2 to 4 to cover the new x-axis range
@@ -432,11 +432,11 @@ These partial sums visualized demonstrate how the Fourier Series converges to th
     ]
 
     % Axes
-    \draw[->,thick] (-6.5,0) -- (13.5,0) node[right] {$t$};
-    \draw[->,thick] (0,-1.5) -- (0,3.5) node[above] {$f(t)$};
+    \draw[<->,thick] (-6.6,0) -- (12.9,0) node[right] {$t$};
+    \draw[<->,thick] (0,-1.5) -- (0,3.5) node[above] {$f(t)$};
 
-    % x-ticks at -2pi, -pi, 0, pi, 2pi, 3pi, 4pi
-    \foreach \i/\label in {-6.28/-\pi, 0/0, 3.14/\pi, 6.28/2\pi, 9.42/3\pi, 12.57/4\pi}
+    % x-ticks at -2pi, -pi, 0, pi, 2pi, 3pi, 4pi (corrected labels)
+    \foreach \i/\label in {-6.28/-2\pi, -3.14/-\pi, 0/0, 3.14/\pi, 6.28/2\pi, 9.42/3\pi, 12.57/4\pi}
         \draw[thick] (\i,0.1) -- (\i,-0.1) node[below] {$\label$};
 
     % y-ticks at 1, 2, 3
