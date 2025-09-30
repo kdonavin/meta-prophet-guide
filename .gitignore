@@ -4,3 +4,4 @@ MODELS/
 *.log 
 *.aux
 *.out
+*.toc
