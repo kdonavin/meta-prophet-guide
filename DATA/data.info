@@ -1,0 +1,58 @@
+# Data Inventory
+
+This file lists datasets included in the `DATA/` folder with a short description and source (when available).
+
+---
+
+air_passengers.csv
+- Description: Classic monthly airline passengers time series (multiplicative seasonality). Columns: ds (date), y (passengers).
+- Source: Prophet example dataset (example_air_passengers.csv). https://raw.githubusercontent.com/facebook/prophet/main/examples/example_air_passengers.csv
+
+exp_retail_sales__monthly.csv
+- Description: Monthly retail sales (numeric values, appears to show seasonal peaks around end-of-year). Columns: ds (date), y (value).
+- Source: local / not recorded in repo (origin unknown).
+
+large_y_exp.csv
+- Description: Short time series with very large numeric y values (used to test numeric stability / scaling). Columns: ds, y.
+- Source: local / generated for demonstrations.
+
+pedestrian_covid_shock.csv
+- Description: Daily pedestrian counts containing COVID-related shocks and recovery patterns. Columns: ds (date), y (count).
+- Source: Melbourne Pedestrian Data portal: https://data.melbourne.vic.gov.au/pages/home/ (exact file subset curated for this repo).
+
+pedestrians_multivariate.csv
+- Description: Hourly pedestrian counts at multiple locations (example multivariate regressors). Columns: ds (datetime), location_4, location_41 (counts).
+- Source: Melbourne Pedestrian Data portal: https://data.melbourne.vic.gov.au/pages/home/ (exact file subset curated for this repo).
+
+peyton_manning_visits__logged.csv
+- Description: Log-transformed page visits/time series for Peyton Manning (used in Prophet examples). Columns: ds (date), y (log visits).
+- Source: Prophet example dataset. https://github.com/facebook/prophet/blob/main/examples/example_wp_log_peyton_manning.csv
+
+R_wiki_visits_outliers.csv
+- Description: Wikipedia page visits for the R page with (corrupted) outliers; used for demonstrating outlier handling. Columns: ds, y (log visits).
+- Source: Prophet example dataset. https://raw.githubusercontent.com/facebook/prophet/main/examples/example_wp_log_R_outliers1.csv
+
+R_wiki_visits_outliers2.csv
+- Description: Alternate/copy of the R Wikipedia visits file (also contains outliers). Columns: ds, y.
+- Source: Prophet example dataset / local copy.
+
+salt_lake_city_population.csv
+- Description: Yearly population counts for Salt Lake City (long historical series). Columns: Year, Population.
+- Source: likely compiled from historical US Census data (origin not recorded in repo).
+
+yosemite_temps__sub-daily.csv
+- Description: Sub-daily temperature measurements (5-minute or similar frequency) for Yosemite; useful for high-frequency forecasting examples. Columns: ds (datetime), y (temperature).
+- Source: local / sensor or public park weather dataset (origin not recorded in repo).
+
+DATA/CYCLING_AUCK_DATA/
+- Description: Auckland cycling counts and matching weather regressors used for modeling the impact of weather on cyclist counts. Contains two subfolders:
+  - CYCLING_COUNTS/: multiple CSVs with counts by year and aggregated counts (e.g., cycling_counts_2010.csv, cycling_counts_by_day.csv).
+  - WEATHER/: weather-derived regressors split by time-of-day or aggregation (e.g., temp_day.csv, rain_commute.csv, sun_morning.csv, wind_day.csv).
+- Source: Auckland Cycling dataset and examples repo. https://github.com/nicolasfauchereau/Auckland_Cycling
+
+---
+
+Notes and usage
+- Files that originate from outside this repo include explicit source URLs where available (Airline Passengers, Peyton Manning, R Wikipedia examples, Auckland Cycling, Melbourne pedestrian portal link). Other files were curated or generated locally and lack upstream citations; if you know the original source for any of those, please update this file.
+- To use these in Prophet examples: most CSVs follow the `ds`/`y` convention (date, value). Multivariate CSVs include additional columns that can be used as regressors.
+
