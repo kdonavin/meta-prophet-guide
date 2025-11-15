@@ -5,3 +5,4 @@ MODELS/
 *.aux
 *.out
 *.toc
+pyrightconfig.json
